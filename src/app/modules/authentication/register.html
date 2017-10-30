@@ -1,0 +1,100 @@
+<div class="landing-page">
+    <div class="content-bg-wrap">
+        <div class="content-bg"></div>
+    </div>
+
+
+    <div class="header--standard header--standard-landing">
+        <div class="container">
+            <div class="header--standard-wrap">
+
+                <a href="01-LandingPage.html#" class="logo">
+                    <img src="assets/img/logo-landing.png" alt="Olympus">
+                    <h6 class="logo-title">Python Social</h6>
+                    SOCIAL NETWORK
+                </a>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="header-spacer--standard"></div>
+
+
+    <!-- Login-Registration Form  -->
+
+    <div class="container">
+        <div class="row display-flex">
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <div class="landing-content">
+                    <h1>Welcome to the Biggest Social Network in the World</h1>
+                    <p>We are the best and biggest social network with 5 billion active users all around the world. Share you thoughts, write blog posts, show your favourite music via Stopify, earn badges and much more!
+                    </p>
+                    <a href="/#/app/auth/login" class="btn btn-lg bg-facebook full-width btn-icon-left">Log In</a>
+                </div>
+            </div>
+
+            <div class="col-xl-5 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <div class="registration-login-form">
+                    <!-- Nav tabs -->
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="home" role="tabpanel" data-mh="log-tab">
+                            <div class="title h6">Register to Python Social</div>
+                            <form class="content">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group label-floating is-empty">
+                                            <input class="form-control" ng-model="vm.register.firstname" placeholder="Firstname" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group label-floating is-empty">
+                                            <input class="form-control" ng-model="vm.register.lastname" placeholder="Lastname" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group label-floating is-empty">
+                                            <input class="form-control" ng-model="vm.register.facebook_id" placeholder="Facebook ID / Username" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="form-group label-floating is-empty">
+                                            <input class="form-control" ng-model="vm.register.twitter_id" placeholder="Twitter Username" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 col-md-12">
+                                        <div class="form-group label-floating is-empty">
+                                            <input class="form-control" ng-model="vm.register.email" placeholder="Email Address" type="email">
+                                        </div>
+                                        <div class="form-group label-floating is-empty">
+                                            <input class="form-control" ng-model="vm.register.username" placeholder="Username" type="text">
+                                        </div>
+
+                                        <div class="form-group label-floating is-empty">
+                                            <input class="form-control" ng-model="vm.register.password" placeholder="********" type="password">
+                                        </div>
+
+                                        <div class="remember">
+                                            <div class="checkbox">
+                                                <label>
+												<input name="optionsCheckboxes" type="checkbox">
+												I accept the <a href="">Terms and Conditions</a> of the website
+											</label>
+                                            </div>
+                                        </div>
+
+                                        <button class="btn btn-purple btn-lg full-width" ng-click="vm.completeRegistration()">Complete Registration!</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

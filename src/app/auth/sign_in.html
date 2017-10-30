@@ -1,0 +1,44 @@
+<div id="page-content">
+    <div class="container">
+        <ol class="breadcrumb">
+            <!-- <li><a href="sign-in.html#">Home</a></li>
+            <li><a href="sign-in.html#">Pages</a></li>
+            <li class="active">Contact</li> -->
+        </ol>
+        <!--end breadcrumb-->
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-md-offset-4 col-sm-offset-4">
+                <section class="page-title">
+                    <h1>Business Sign In</h1>
+                </section>
+                <!--end page-title-->
+                <section>
+                    <form class="form inputs-underline">
+                        <div class="alert alert-danger" ng-if="vm.api_error">{{vm.api_error}}</div>
+                        <div class="alert alert-{{vm.state_params.message.type}}" ng-if="vm.state_params.has_error">{{vm.state_params.message.text}}</div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" ng-model="vm.business.email" class="form-control" name="email" id="email" placeholder="Your email">
+                        </div>
+                        <!--end form-group-->
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" ng-model="vm.business.password" class="form-control" name="password" id="password" placeholder="Your password">
+                        </div>
+                        <div class="form-group center">
+                            <button ng-click="vm.BusinessLogin(vm.business)" type="submit" class="btn btn-primary width-100">Sign In</button>
+                        </div>
+                        <!--end form-group-->
+                    </form>
+
+                    <hr>
+
+                    <a href="sign-in.html#" data-modal-external-file="modal_reset_password.php" data-target="modal-reset-password">I have forgot my password</a>
+                </section>
+            </div>
+            <!--col-md-4-->
+        </div>
+        <!--end ro-->
+    </div>
+    <!--end container-->
+</div>
