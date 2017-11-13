@@ -26,11 +26,8 @@
         };
 
         reply.authenticateUserIsLoggedIn = function() {
-            console.log("authenticateUserIsLoggedIn")
-            console.log("Session Type", typeof localStorage.isUserLoggedIn)
-            if (typeof localStorage.isUserLoggedIn !== undefined || localStorage.isUserLoggedIn === "0") {
-                console.log("User Nor logged in :debug")
-                    // reply.toLogin();
+            if (typeof localStorage.isUserLoggedIn === undefined || localStorage.isUserLoggedIn === "0") {
+                // reply.toLogin();
                 $window.location.href = '/#/app/auth/login';
                 return false;
             }

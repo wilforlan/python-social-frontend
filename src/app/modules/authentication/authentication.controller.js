@@ -49,7 +49,7 @@
             }
         };
 
-        vm.UserLogout = function BusinessLogout() {
+        vm.UserLogout = function UserLogout() {
             ApiAuthenticator.logout();
         };
 

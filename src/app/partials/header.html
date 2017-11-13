@@ -16,11 +16,11 @@
             </div>
         </form>
 
-        <a href="03-Newsfeed.html#" class="link-find-friend">Find Friends</a>
+        <a class="link-find-friend">Find Friends</a>
 
         <div class="control-block">
 
-            <div class="control-icon more has-items">
+            <!-- <div class="control-icon more has-items">
                 <svg class="olymp-happy-face-icon"><use xlink:href="assets/icons/icons.svg#olymp-happy-face-icon"></use></svg>
                 <div class="label-avatar bg-blue">6</div>
 
@@ -345,9 +345,9 @@
 
                     <a href="03-Newsfeed.html#" class="view-all bg-primary">View All Notifications</a>
                 </div>
-            </div>
+            </div> -->
 
-            <div class="author-page author vcard inline-items more">
+            <div class="author-page author vcard inline-items more" ng-controller="AuthenticationController as vm">
                 <div class="author-thumb">
                     <img alt="author" src="assets/img/author-page.jpg" class="avatar">
                     <span class="icon-status online"></span>
@@ -374,7 +374,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="03-Newsfeed.html#">
+                                    <a ng-click="vm.UserLogout()">
                                         <svg class="olymp-logout-icon"><use xlink:href="assets/icons/icons.svg#olymp-logout-icon"></use></svg>
 
                                         <span>Log Out</span>
@@ -382,73 +382,20 @@
                                 </li>
                             </ul>
 
-                            <div class="ui-block-title ui-block-title-small">
-                                <h6 class="title">Chat Settings</h6>
-                            </div>
-
-                            <ul class="chat-settings">
-                                <li>
-                                    <a href="03-Newsfeed.html#">
-                                        <span class="icon-status online"></span>
-                                        <span>Online</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="03-Newsfeed.html#">
-                                        <span class="icon-status away"></span>
-                                        <span>Away</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="03-Newsfeed.html#">
-                                        <span class="icon-status disconected"></span>
-                                        <span>Disconnected</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="03-Newsfeed.html#">
-                                        <span class="icon-status status-invisible"></span>
-                                        <span>Invisible</span>
-                                    </a>
-                                </li>
-                            </ul>
 
                             <div class="ui-block-title ui-block-title-small">
-                                <h6 class="title">Custom Status</h6>
-                            </div>
-
-                            <form class="form-group with-button custom-status">
-                                <input class="form-control" placeholder="" type="text" value="Space Cowboy">
-
-                                <button class="bg-purple">
-									<svg class="olymp-check-icon"><use xlink:href="assets/icons/icons.svg#olymp-check-icon"></use></svg>
-								</button>
-                            </form>
-
-                            <div class="ui-block-title ui-block-title-small">
-                                <h6 class="title">About Olympus</h6>
+                                <h6 class="title">About PySocial</h6>
                             </div>
 
                             <ul>
                                 <li>
-                                    <a href="03-Newsfeed.html#">
-                                        <span>Terms and Conditions</span>
+                                    <a>
+                                        <span>Developer: Williams Isaac</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="03-Newsfeed.html#">
-                                        <span>FAQs</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="03-Newsfeed.html#">
-                                        <span>Careers</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="03-Newsfeed.html#">
-                                        <span>Contact</span>
+                                    <a>
+                                        <span>Email: williamscalg@gmail.com</span>
                                     </a>
                                 </li>
                             </ul>

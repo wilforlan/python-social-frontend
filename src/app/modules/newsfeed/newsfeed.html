@@ -27,7 +27,7 @@
                                     <!-- <img src="assets/img/author-page.jpg" alt="author"> -->
                                 </div>
                                 <div class="form-group with-icon label-floating is-empty">
-                                    <textarea class="form-control" placeholder="Share what you are thinking here..."></textarea>
+                                    <textarea class="form-control" ng-model="story.story_content" placeholder="Share what you are thinking here..."></textarea>
                                 </div>
                                 <div class="add-options-message">
                                     <a href="03-Newsfeed.html#" class="options-message" data-toggle="tooltip" data-placement="top" data-original-title="ADD PHOTOS">
@@ -41,7 +41,7 @@
                                         <svg class="olymp-small-pin-icon"><use xlink:href="assets/assets/icons/icons.svg#olymp-small-pin-icon"></use></svg>
                                     </a>
 
-                                    <button class="btn btn-primary btn-md-2">Post Story</button>
+                                    <button class="btn btn-primary btn-md-2" ng-click="vm.create_story(story)">Post Story</button>
                                     <button class="btn btn-md-2 btn-border-think btn-transparent c-grey">Preview</button>
 
                                 </div>
@@ -54,100 +54,31 @@
             </div>
 
             <div id="newsfeed-items-grid">
-                {{vm.newsfeed}}
-                <div class="ui-block">
-                    <article class="hentry post video">
+                <div class="ui-block" ng-repeat="feed in vm.newfeed_array">
+                    <article class="hentry post">
 
                         <div class="post__author author vcard inline-items">
                             <img src="assets/img/avatar7-sm.jpg" alt="author">
 
                             <div class="author-date">
-                                <a class="h6 post__author-name fn" href="03-Newsfeed.html#">Marina Valentine</a> shared a <a href="03-Newsfeed.html#">link</a>
+                                <a class="h6 post__author-name fn" href="03-Newsfeed.html#">{{feed.user_details[0].firstname + ' ' + feed.user_details[0].lastname}}</a> shared a <a>Story</a>
                                 <div class="post__date">
                                     <time class="published" datetime="2004-07-24T18:18">
-										March 4 at 2:05pm
+										{{feed.created_on}}
 									</time>
                                 </div>
                             </div>
-
-                            <div class="more"><svg class="olymp-three-dots-icon"><use xlink:href="assets/icons/icons.svg#olymp-three-dots-icon"></use></svg>
-                                <ul class="more-dropdown">
-                                    <li>
-                                        <a href="03-Newsfeed.html#">Edit Post</a>
-                                    </li>
-                                    <li>
-                                        <a href="03-Newsfeed.html#">Delete Post</a>
-                                    </li>
-                                    <li>
-                                        <a href="03-Newsfeed.html#">Turn Off Notifications</a>
-                                    </li>
-                                    <li>
-                                        <a href="03-Newsfeed.html#">Select as Featured</a>
-                                    </li>
-                                </ul>
-                            </div>
-
                         </div>
 
-                        <p>Hey <a href="03-Newsfeed.html#">Cindi</a>, you should really check out this new song by Iron Maid. The next time they come to the city we should totally go!</p>
-
-                        <div class="post-video">
-                            <div class="video-thumb">
-                                <img src="assets/img/video-youtube1.jpg" alt="photo">
-                                <a href="https://youtube.com/watch?v=excVFQ2TWig" class="play-video">
-                                    <svg class="olymp-play-icon"><use xlink:href="assets/icons/icons.svg#olymp-play-icon"></use></svg>
-                                </a>
-                            </div>
-
-                            <div class="video-content">
-                                <a href="03-Newsfeed.html#" class="h4 title">Iron Maid - ChillGroves</a>
-                                <p>Lorem ipsum dolor sit amet, consectetur ipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
-                                </p>
-                                <a href="03-Newsfeed.html#" class="link-site">YOUTUBE.COM</a>
-                            </div>
-                        </div>
+                        <p>{{feed.story_content}}</p>
 
                         <div class="post-additional-info inline-items">
 
-                            <a href="03-Newsfeed.html#" class="post-add-icon inline-items">
+                            <a ng-click="vm.like_story(feed)" class="post-add-icon inline-items">
                                 <svg class="olymp-heart-icon"><use xlink:href="assets/icons/icons.svg#olymp-heart-icon"></use></svg>
-                                <span>18</span>
+                                <span>{{feed.likers.length}}</span>
                             </a>
-
-                            <ul class="friends-harmonic">
-                                <li>
-                                    <a href="03-Newsfeed.html#">
-                                        <img src="assets/img/friend-harmonic9.jpg" alt="friend">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="03-Newsfeed.html#">
-                                        <img src="assets/img/friend-harmonic10.jpg" alt="friend">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="03-Newsfeed.html#">
-                                        <img src="assets/img/friend-harmonic7.jpg" alt="friend">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="03-Newsfeed.html#">
-                                        <img src="assets/img/friend-harmonic8.jpg" alt="friend">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="03-Newsfeed.html#">
-                                        <img src="assets/img/friend-harmonic11.jpg" alt="friend">
-                                    </a>
-                                </li>
-                            </ul>
-
-                            <div class="names-people-likes">
-                                <a href="03-Newsfeed.html#">Jenny</a>, <a href="03-Newsfeed.html#">Robert</a> and
-                                <br>18 more liked this
-                            </div>
-
-                            <div class="comments-shared">
+                            <!-- <div class="comments-shared">
                                 <a href="03-Newsfeed.html#" class="post-add-icon inline-items">
                                     <svg class="olymp-speech-balloon-icon"><use xlink:href="assets/icons/icons.svg#olymp-speech-balloon-icon"></use></svg>
 
@@ -159,27 +90,10 @@
 
                                     <span>16</span>
                                 </a>
-                            </div>
+                            </div> -->
 
 
                         </div>
-
-                        <div class="control-block-button post-control-button">
-
-                            <a href="03-Newsfeed.html#" class="btn btn-control">
-                                <svg class="olymp-like-post-icon"><use xlink:href="assets/icons/icons.svg#olymp-like-post-icon"></use></svg>
-                            </a>
-
-                            <a href="03-Newsfeed.html#" class="btn btn-control">
-                                <svg class="olymp-comments-post-icon"><use xlink:href="assets/icons/icons.svg#olymp-comments-post-icon"></use></svg>
-                            </a>
-
-                            <a href="03-Newsfeed.html#" class="btn btn-control">
-                                <svg class="olymp-share-icon"><use xlink:href="assets/icons/icons.svg#olymp-share-icon"></use></svg>
-                            </a>
-
-                        </div>
-
                     </article>
                 </div>
 
@@ -209,63 +123,26 @@
                     <h6 class="title">Friend Suggestions</h6>
                     <a href="03-Newsfeed.html#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="assets/icons/icons.svg#olymp-three-dots-icon"></use></svg></a>
                 </div>
-
-                <ul class="widget w-friend-pages-added notification-list friend-requests">
-                    <li class="inline-items">
-                        <div class="author-thumb">
-                            <img src="assets/img/avatar38-sm.jpg" alt="author">
-                        </div>
-                        <div class="notification-event">
-                            <a href="03-Newsfeed.html#" class="h6 notification-friend">Francine Smith</a>
-                            <span class="chat-message-item">8 Friends in Common</span>
-                        </div>
-                        <span class="notification-icon">
-							<a href="03-Newsfeed.html#" class="accept-request">
+                <h5 style="margin: 10px;" ng-hide="vm.friends_array.length"> Oops, We do not have a lot of users yet. No Friends to show at the moment </h3>
+                    <ul class="widget w-friend-pages-added notification-list friend-requests" ng-show="vm.friends_array.length">
+                        <li class="inline-items" ng-repeat="f in vm.friends_array">
+                            <div class="author-thumb">
+                                <img src="assets/img/avatar38-sm.jpg" alt="author">
+                            </div>
+                            <div class="notification-event">
+                                <a href="03-Newsfeed.html#" class="h6 notification-friend">{{f.firstname + ' ' + f.lastname}}</a>
+                                <!-- <span class="chat-message-item">8 Friends in Common</span> -->
+                            </div>
+                            <span class="notification-icon">
+							<a ng-click="vm.follow_user(f)" ng-disabled="f.disabled" class="accept-request">
 								<span class="icon-add without-text">
 									<svg class="olymp-happy-face-icon"><use xlink:href="assets/icons/icons.svg#olymp-happy-face-icon"></use></svg>
 								</span>
-                        </a>
-                        </span>
+                            </a>
+                            </span>
 
-                    </li>
-
-                    <li class="inline-items">
-                        <div class="author-thumb">
-                            <img src="assets/img/avatar39-sm.jpg" alt="author">
-                        </div>
-                        <div class="notification-event">
-                            <a href="03-Newsfeed.html#" class="h6 notification-friend">Hugh Wilson</a>
-                            <span class="chat-message-item">6 Friends in Common</span>
-                        </div>
-                        <span class="notification-icon">
-							<a href="03-Newsfeed.html#" class="accept-request">
-								<span class="icon-add without-text">
-									<svg class="olymp-happy-face-icon"><use xlink:href="assets/icons/icons.svg#olymp-happy-face-icon"></use></svg>
-								</span>
-                        </a>
-                        </span>
-
-                    </li>
-
-                    <li class="inline-items">
-                        <div class="author-thumb">
-                            <img src="assets/img/avatar40-sm.jpg" alt="author">
-                        </div>
-                        <div class="notification-event">
-                            <a href="03-Newsfeed.html#" class="h6 notification-friend">Karen Masters</a>
-                            <span class="chat-message-item">6 Friends in Common</span>
-                        </div>
-                        <span class="notification-icon">
-							<a href="03-Newsfeed.html#" class="accept-request">
-								<span class="icon-add without-text">
-									<svg class="olymp-happy-face-icon"><use xlink:href="assets/icons/icons.svg#olymp-happy-face-icon"></use></svg>
-								</span>
-                        </a>
-                        </span>
-
-                    </li>
-
-                </ul>
+                        </li>
+                    </ul>
 
             </div>
         </aside>
